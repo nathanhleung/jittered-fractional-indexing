@@ -42,11 +42,11 @@ generateKeyBetween(
 
 For cryptographically-sensitive applications, the default `Math.random()`-based `getRandomBit` function can be replaced with an implementation that uses [`Crypto.getRandomValues()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) (browser) or [`node:crypto`](https://nodejs.org/api/crypto.html#cryptorandombytessize-callback) instead. This custom `getRandomBit` function must return a uniformly-distributed (i.e., 50% chance of a `true` or `false` result) boolean for an unbiased key.
 
-To select a more appropriate `jitterBits` argument (which defaults to 30), [birthday bounds](https://en.wikipedia.org/wiki/Birthday_attack) can be used to estimate the probability of collision, i.e., with $`k`$ keys and $`b`$ bits of jitter, the probability of collision is
+To select a more appropriate `jitterBits` argument for your use-case (it defaults to 30), [birthday bounds](https://en.wikipedia.org/wiki/Birthday_attack) can be used to estimate the probability of collision, i.e., with $`k`$ keys and $`b`$ bits of jitter, the probability of collision is
 
 $$1 - \frac{(2^b)!}{(2^b - k)!(2^b)^k}$$
 
-For example, when $`b = 30`$ and $`k = 10000`$, we get a ~4.5% chance of collision. Note that this calculation is specific to $`a`$ and $`b`$, i.e., it applies when 10,000 keys are generated at the same time for  the same $`a`$ and $`b`$, and is not a general probability of collision for all key ranges.
+For example, when $`b = 30`$ and $`k = 10000`$, there is a ~4.5% chance of collision. Note that this calculation is specific to $`a`$ and $`b`$, i.e., it applies when 10,000 keys are generated at the same time for  the same $`a`$ and $`b`$, and is not a general probability of collision for all key ranges.
 
 ```ts
 import { generateKeyBetween } from 'jittered-fractional-indexing';
