@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "rm -rf dist && tsc && vite build",
     "test": "vitest",
     "format": "prettier --write src/"
   },
@@ -18,17 +18,19 @@
     "fractional",
     "indexing",
     "ordering",
-    "order"
+    "order",
+    "jittered",
+    "jitter"
   ],
   "homepage": "https://github.com/nathanhleung/jittered-fractional-indexing#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nathanhleung/jittered-fractional-indexing.git"
+    "url": "git+https://github.com/nathanhleung/jittered-fractional-indexing.git"
   },
   "bugs": {
     "url": "https://github.com/nathanhleung/jittered-fractional-indexing/issues"
   },
-  "author": "nathanhleung@gmail.com",
+  "author": "github@nathanhleung.com",
   "license": "CC0-1.0",
   "engines": {
     "node": ">=18.0.0"
@@ -37,6 +39,7 @@
     "prettier": "^3.6.2",
     "typescript": "~5.8.3",
     "vite": "^7.0.4",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"
   },
   "dependencies": {
