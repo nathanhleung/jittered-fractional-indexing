@@ -1,6 +1,5 @@
 import { describe, test, expect, vi } from "vitest";
 import { generateKeyBetween, generateNKeysBetween } from "./index";
-import { generateNKeysBetween as unjitteredGenerateNKeysBetween } from "fractional-indexing";
 
 describe("validateJitterBits", () => {
   test("should throw error for non-integer jitterBits", () => {
