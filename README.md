@@ -40,7 +40,7 @@ generateKeyBetween(
 ): string
 ```
 
-For cryptographically-sensitive applications, the default `Math.random()`-based `getRandomBit` function can be replaced with an implementation that uses `crypto.getRandomValues()` (browser) or `node:crypto` instead. This custom `getRandomBit` function must return a uniformly-distributed (i.e., 50% chance of a `true` or `false` result) boolean for an unbiased key.
+For cryptographically-sensitive applications, the default `Math.random()`-based `getRandomBit` function can be replaced with an implementation that uses [`Crypto.getRandomValues()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) (browser) or [`node:crypto`](https://nodejs.org/api/crypto.html#cryptorandombytessize-callback) instead. This custom `getRandomBit` function must return a uniformly-distributed (i.e., 50% chance of a `true` or `false` result) boolean for an unbiased key.
 
 To select a more appropriate `jitterBits` argument (which defaults to 30), [birthday bounds](https://en.wikipedia.org/wiki/Birthday_attack) can be used to estimate the probability of collision, i.e., with $`k`$ keys and $`b`$ bits of jitter, the probability of collision is
 
