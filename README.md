@@ -1,5 +1,9 @@
 # Jittered Fractional Indexing
 
+[![npm version](https://img.shields.io/npm/v/jittered-fractional-indexing.svg)](https://www.npmjs.com/package/jittered-fractional-indexing)
+[![Node version](https://img.shields.io/node/v/jittered-fractional-indexing.svg)](https://github.com/nathanhleung/jittered-fractional-indexing) 
+[![GitHub license](https://img.shields.io/github/license/nathanhleung/jittered-fractional-indexing.svg)](https://github.com/nathanhleung/jittered-fractional-indexing/blob/master/LICENSE)
+
 This package extends [rocicorp/fractional-indexing](https://github.com/rocicorp/fractional-indexing) with random jitter functionality to minimize the likelihood of index collisions when generating fractional indices concurrently.
 
 [rocicorp/fractional-indexing](https://github.com/rocicorp/fractional-indexing) is in turn based on [Implementing Fractional Indexing
