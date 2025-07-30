@@ -84,7 +84,7 @@ generateNKeysBetween(
 ```
 
 ```ts
-import { generateNKeysBetween } from 'fractional-indexing';
+import { generateNKeysBetween } from 'jittered-fractional-indexing';
 
 const first = generateNKeysBetween(null, null, 2); // ['a0bNAd5V', 'a1Gbzq0G']
 

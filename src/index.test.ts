@@ -253,19 +253,20 @@ describe("edge cases and error handling", () => {
   });
 
   test("should not generate keys that are too long", () => {
-    const low = "a0";
-    let high = "a1";
-    let i = 0;
+    function generateDeepKey() {
+      const low = "a0";
+      let high = "a1";
+      let i = 0;
+  
+      while (i < 50) {
+        high = generateKeyBetween(low, high, { jitterBits: 30 });
+        i++;
+      }
 
-    while (i < 50) {
-      high = generateKeyBetween(low, high, { jitterBits: 30 });
-      i++;
+      return high;
     }
 
-    // Running the loop 50 times with 30 bits of jitter means that the key
-    // is on the order of 1/2^80, which requires at least 25 leading zeroes in
-    // base 10. So the base 62 representation of the key should be less than 26
-    // characters.
-    expect(high.length).toBeLessThan(26);
+    const deepKeys = Array.from({ length: 1000 }, generateDeepKey);
+    expect(deepKeys.filter((key) => key.length > 30).length).toBe(0);
   });
 });

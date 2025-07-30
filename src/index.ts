@@ -9,12 +9,12 @@ const DEFAULT_JITTER_BITS = 30;
 const DEFAULT_GET_RANDOM_BIT = () => Math.random() < 0.5;
 
 /**
- * Validates that `n` is a positive integer.
+ * Validates that `n` is a nonnegative integer.
  *
  * @param paramName - The name of the parameter to validate.
  * @param n - The parameter to validate.
  */
-function assertIsPositiveInteger(paramName: string, n: number) {
+function assertIsNonnegativeInteger(paramName: string, n: number) {
   if (!Number.isInteger(n)) {
     throw new Error(`"${paramName}" must be an integer, got '${n}'`);
   }
@@ -78,7 +78,7 @@ export function generateKeyBetween(
     getRandomBit = DEFAULT_GET_RANDOM_BIT,
   } = opts ?? {};
 
-  assertIsPositiveInteger("jitterBits", jitterBits);
+  assertIsNonnegativeInteger("jitterBits", jitterBits);
 
   let remainingJitterBits = jitterBits;
   let low = a;
@@ -140,7 +140,7 @@ export function generateNKeysBetween(
 ) {
   const { digits, jitterBits } = opts ?? {};
 
-  assertIsPositiveInteger("n", n);
+  assertIsNonnegativeInteger("n", n);
 
   if (n === 0) {
     return [];
