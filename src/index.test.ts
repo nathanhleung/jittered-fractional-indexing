@@ -257,7 +257,7 @@ describe("edge cases and error handling", () => {
       const low = "a0";
       let high = "a1";
       let i = 0;
-  
+
       while (i < 50) {
         high = generateKeyBetween(low, high, { jitterBits: 30 });
         i++;
