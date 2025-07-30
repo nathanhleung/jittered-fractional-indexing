@@ -1,15 +1,42 @@
 {
   "name": "jittered-fractional-indexing",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Provides functions for generating ordering strings with random jitter to minimize the likelihood of collisions",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "test": "vitest",
+    "format": "prettier --write src/"
   },
+  "keywords": [
+    "fractional",
+    "indexing",
+    "ordering",
+    "order"
+  ],
+  "homepage": "https://github.com/nathanhleung/jittered-fractional-indexing#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathanhleung/jittered-fractional-indexing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nathanhleung/jittered-fractional-indexing/issues"
+  },
+  "author": "nathanhleung@gmail.com",
+  "license": "CC0-1.0",
   "devDependencies": {
+    "prettier": "^3.6.2",
     "typescript": "~5.8.3",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "fractional-indexing": "^3.2.0"
   }
 }
