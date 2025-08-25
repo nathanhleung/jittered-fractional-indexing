@@ -46,7 +46,7 @@ To select a more appropriate `jitterBits` argument for your use-case (it default
 
 $$1 - \frac{(2^b)!}{(2^b - k)!(2^b)^k}$$
 
-For example, when $`b = 30`$ and $`k = 10000`$, there is a ~4.5% chance of collision. Note that this calculation is specific to $`a`$ and $`b`$, i.e., it applies when 10,000 keys are generated at the same time for  the same $`a`$ and $`b`$, and is not a general probability of collision for all key ranges.
+For example, when $`b = 30`$ and $`k = 10000`$, there is a ~4.5% chance of collision. Note that this calculation is specific to the `generateKeyBetween` parameters `a` and `b`, i.e., it applies when 10,000 keys are generated at the same time for  the same `a` and `b`, and is not a general probability of collision for all key ranges.
 
 ```ts
 import { generateKeyBetween } from 'jittered-fractional-indexing';
