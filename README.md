@@ -1,7 +1,9 @@
 # Jittered Fractional Indexing
 
+[![npm total downloads](https://img.shields.io/npm/dt/jittered-fractional-indexing.svg)](https://www.npmjs.com/package/jittered-fractional-indexing) [![npm monthly downloads](https://img.shields.io/npm/dm/jittered-fractional-indexing.svg)](https://www.npmjs.com/package/jittered-fractional-indexing) ![GitHub stars](https://img.shields.io/github/stars/nathanhleung/jittered-fractional-indexing?style=social)
+
 [![npm version](https://img.shields.io/npm/v/jittered-fractional-indexing.svg)](https://www.npmjs.com/package/jittered-fractional-indexing)
-[![Node version](https://img.shields.io/node/v/jittered-fractional-indexing.svg)](https://github.com/nathanhleung/jittered-fractional-indexing) 
+[![Node version](https://img.shields.io/node/v/jittered-fractional-indexing.svg)](https://github.com/nathanhleung/jittered-fractional-indexing)
 [![GitHub license](https://img.shields.io/github/license/nathanhleung/jittered-fractional-indexing.svg)](https://github.com/nathanhleung/jittered-fractional-indexing/blob/master/LICENSE)
 
 This package extends [rocicorp/fractional-indexing](https://github.com/rocicorp/fractional-indexing) with random jitter functionality to minimize the likelihood of index collisions when generating fractional indices concurrently.
@@ -46,10 +48,10 @@ To select a more appropriate `jitterBits` argument for your use-case (it default
 
 $$1 - \frac{(2^b)!}{(2^b - k)!(2^b)^k}$$
 
-For example, when $`b = 30`$ and $`k = 10000`$, there is a ~4.5% chance of collision. Note that this calculation is specific to the `generateKeyBetween` parameters `a` and `b`, i.e., it applies when 10,000 keys are generated at the same time for  the same `a` and `b`, and is not a general probability of collision for all key ranges.
+For example, when $`b = 30`$ and $`k = 10000`$, there is a ~4.5% chance of collision. Note that this calculation is specific to the `generateKeyBetween` parameters `a` and `b`, i.e., it applies when 10,000 keys are generated at the same time for the same `a` and `b`, and is not a general probability of collision for all key ranges.
 
 ```ts
-import { generateKeyBetween } from 'jittered-fractional-indexing';
+import { generateKeyBetween } from "jittered-fractional-indexing";
 
 const first = generateKeyBetween(null, null); // "a3MdwWG"
 
@@ -84,7 +86,7 @@ generateNKeysBetween(
 ```
 
 ```ts
-import { generateNKeysBetween } from 'jittered-fractional-indexing';
+import { generateNKeysBetween } from "jittered-fractional-indexing";
 
 const first = generateNKeysBetween(null, null, 2); // ['a0bNAd5V', 'a1Gbzq0G']
 
