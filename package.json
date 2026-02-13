@@ -1,6 +1,6 @@
 {
   "name": "jittered-fractional-indexing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides functions for generating ordering strings with random jitter to minimize the likelihood of collisions",
   "type": "module",
   "main": "./dist/index.js",
