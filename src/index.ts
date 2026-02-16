@@ -8,6 +8,12 @@ import {
 const DEFAULT_JITTER_BITS = 30;
 const DEFAULT_GET_RANDOM_BIT = () => Math.random() < 0.5;
 
+type Tuple<T, N extends number, R extends unknown[] = []> = number extends N
+  ? T[]
+  : R["length"] extends N
+    ? R
+    : Tuple<T, N, [...R, T]>;
+
 /**
  * Validates that `n` is a nonnegative integer.
  *
@@ -128,26 +134,26 @@ export function generateKeyBetween(
  *   `generateKeyBetween`.
  * @returns `n` new, jittered fractional index keys between `a` and `b`.
  */
-export function generateNKeysBetween(
+export function generateNKeysBetween<N extends number>(
   a: string | null | undefined,
   b: string | null | undefined,
-  n: number,
+  n: N,
   opts?: {
     digits?: string;
     jitterBits?: number;
     getRandomBit?: () => boolean;
   },
-) {
+): Tuple<string, N> {
   const { digits, jitterBits } = opts ?? {};
 
   assertIsNonnegativeInteger("n", n);
 
   if (n === 0) {
-    return [];
+    return [] as Tuple<string, N>;
   }
 
   if (jitterBits === 0) {
-    return unjitteredGenerateNKeysBetween(a, b, n, digits);
+    return unjitteredGenerateNKeysBetween(a, b, n, digits) as Tuple<string, N>;
   }
 
   // `n + 1` keys between `a` and `b` give us `n` spaces between them
@@ -161,5 +167,5 @@ export function generateNKeysBetween(
     jitteredKeys.push(generateKeyBetween(currentKey, nextKey, opts));
   }
 
-  return jitteredKeys;
+  return jitteredKeys as Tuple<string, N>;
 }
